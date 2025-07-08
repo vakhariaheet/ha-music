@@ -1,0 +1,135 @@
+/* Home Assistant inspired, modern, clean, mobile-first */
+body {
+  margin: 0;
+  background: #f6f7fb;
+  color: #222;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+}
+.ha-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.ha-header h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+  color: #1e88e5;
+}
+.ha-search {
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  border: 1px solid #e0e0e0;
+  outline: none;
+  transition: border 0.2s;
+}
+.ha-search:focus {
+  border: 1.5px solid #1e88e5;
+}
+.artist-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.2rem;
+  padding: 1.5rem;
+}
+.artist-card {
+  background: #fff;
+  border-radius: 1.2rem;
+  box-shadow: 0 2px 8px rgba(30,136,229,0.07);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.2rem 0.5rem 0.8rem 0.5rem;
+  border: none;
+  cursor: pointer;
+  transition: box-shadow 0.2s, transform 0.1s;
+  touch-action: manipulation;
+  width: 100%;
+}
+.artist-card:focus, .artist-card:hover {
+  box-shadow: 0 4px 16px rgba(30,136,229,0.15);
+  outline: 2px solid #1e88e5;
+  outline-offset: 2px;
+  transform: translateY(-2px) scale(1.03);
+}
+.artist-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 0.7rem;
+  background: #e3eafc;
+}
+.artist-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #222;
+  text-align: center;
+}
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 2.5rem;
+  transform: translateX(-50%);
+  background: #1e88e5;
+  color: #fff;
+  padding: 1rem 2rem;
+  border-radius: 2rem;
+  font-size: 1.1rem;
+  box-shadow: 0 2px 12px rgba(30,136,229,0.18);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  animation: fadein 0.2s, fadeout 0.2s 2.5s;
+}
+@keyframes fadein {
+  from { opacity: 0; transform: translateX(-50%) translateY(20px); }
+  to { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+@keyframes fadeout {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+.artist-list {
+  list-style: none;
+  margin: 1.5rem 0 0 0;
+  padding: 0 1.5rem;
+}
+.artist-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  margin-bottom: 0.7rem;
+  padding: 0.8rem 1rem;
+  border-radius: 0.8rem;
+  box-shadow: 0 1px 4px rgba(30,136,229,0.06);
+}
+.artist-list button {
+  background: none;
+  border: none;
+  color: #1e88e5;
+  font-size: 1rem;
+  margin-left: 0.7rem;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  padding: 0.3rem 0.7rem;
+  transition: background 0.15s;
+}
+.artist-list button:focus, .artist-list button:hover {
+  background: #e3eafc;
+  outline: 2px solid #1e88e5;
+}
+@media (max-width: 600px) {
+  .ha-header { flex-direction: column; align-items: flex-start; gap: 0.7rem; }
+  .artist-grid { padding: 1rem; gap: 0.7rem; }
+  .artist-list { padding: 0 0.5rem; }
+}
